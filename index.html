@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serina AI - Official Website</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root { --bg-dark: #050811; --accent: #00f2ff; }
+        body { background-color: var(--bg-dark); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; color: #e2e8f0; }
+        .font-code { font-family: 'Fira Code', monospace; }
+        .font-header { font-family: 'Space Grotesk', sans-serif; }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s; }
+        .glass:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .blink-border { border: 2px solid; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { border-color: var(--accent); box-shadow: 0 0 15px rgba(0, 242, 255, 0.3); } 50% { border-color: transparent; box-shadow: none; } }
+        .custom-emoji { width: 20px; vertical-align: middle; margin-right: 8px; }
+        .hidden { display: none; }
+        .active-link { background: rgba(0, 242, 255, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <section class="pt-8 px-4" data-aos="fade-down">
+        <div class="max-w-4xl mx-auto glass rounded-xl overflow-hidden border-cyan-500/30">
+            <div class="bg-gray-800/50 px-4 py-2 flex items-center gap-2 border-b border-white/10 text-[10px] font-code">
+                <div class="flex gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-red-500"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500"></div></div>
+                <span>serina_dev.js</span>
+            </div>
+            <div class="p-6 font-code text-sm sm:text-base leading-relaxed">
+                <p><span class="text-pink-500">const</span> <span class="text-blue-400">Development</span> = {</p>
+                <div class="pl-5">
+                    <p><span class="text-cyan-400">author</span>: <span class="text-yellow-300">"Moyhaz (Hazd)"</span>,</p>
+                    <p><span class="text-cyan-400">role</span>: <span class="text-yellow-300">"Server & Bot Architect"</span>,</p>
+                    <p><span class="text-cyan-400">version</span>: <span class="text-yellow-300">"1.0.0-Stable"</span></p>
+                </div>
+                <p>};</p>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-5 z-50 mt-8 px-4">
+        <div class="max-w-fit mx-auto glass rounded-2xl p-1.5 flex gap-1">
+            <button onclick="showPage('home')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold active-link">Home</button>
+            <button onclick="showPage('download')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold">Download</button>
+            <button onclick="showPage('donasi')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold">Donasi</button>
+            <button onclick="showPage('premium')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold">Premium</button>
+            <button onclick="showPage('informasi')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold">Informasi</button>
+        </div>
+    </nav>
+
+    <section id="home" class="page-content py-12 px-4">
+        <div class="text-center mb-10">
+            <h1 class="text-5xl font-header font-extrabold mb-4" data-aos="zoom-in">Serina <span class="text-cyan-400">AI</span></h1>
+            <p class="text-gray-400 max-w-xl mx-auto">Script bot WhatsApp modern dengan fitur terlengkap dan performa tinggi.</p>
+        </div>
+
+        <div class="max-w-md mx-auto blink-border glass p-6 rounded-2xl mb-12" data-aos="fade-up">
+            <h3 class="font-bold mb-4 flex items-center">🌺 Fitur-fitur Script Serina Ai</h3>
+            <ul class="space-y-2 font-code text-sm">
+                <li><span class="text-red-500">🔴</span> Support Node 20+</li>
+                <li><span class="text-red-500">🔴</span> Anti Connect Close</li>
+                <li><span class="text-red-500">🔴</span> Full Modern Style</li>
+            </ul>
+        </div>
+
+        <div class="swiper mySwiper max-w-5xl mx-auto pb-10" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide p-4">
+                    <div class="glass p-6 rounded-2xl h-64 flex flex-col justify-between">
+                        <div class="font-code text-sm">
+                            <span class="text-cyan-400">// Base Menu</span>
+                            <ul class="mt-4 space-y-2">
+                                <li>📦 main menu</li>
+                                <li>🖥️ panel menu</li>
+                                <li>🌐 subdo menu</li>
+                            </ul>
+                        </div>
+                        <div class="text-[10px] text-gray-500 italic font-code">Serina Ai - Hazsly GG</div>
+                    </div>
+                </div>
+                <div class="swiper-slide p-4">
+                    <div class="glass p-6 rounded-2xl h-64 flex flex-col justify-between">
+                        <div class="font-code text-sm">
+                            <span class="text-cyan-400">// Business</span>
+                            <ul class="mt-4 space-y-2">
+                                <li>💰 store menu</li>
+                                <li>📢 jpm menu</li>
+                                <li>🚀 push menu</li>
+                            </ul>
+                        </div>
+                        <div class="text-[10px] text-gray-500 italic font-code">Serina Ai - Hazsly GG</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="download" class="page-content hidden py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-header font-bold mb-8">Download Center</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass p-6 rounded-2xl border-l-4 border-cyan-500">
+                    <h3 class="font-bold">Main Script V1</h3>
+                    <p class="text-sm text-gray-400 mt-2 mb-4">Script utama siap pakai.</p>
+                    <button onclick="window.location.href='#'" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold">Download ZIP</button>
+                </div>
+                <div class="glass p-6 rounded-2xl border-l-4 border-blue-500">
+                    <h3 class="font-bold">Database SQL</h3>
+                    <p class="text-sm text-gray-400 mt-2 mb-4">Struktur DB untuk premium.</p>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg font-bold">Download SQL</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="donasi" class="page-content hidden py-12 px-4">
+        <div class="max-w-2xl mx-auto glass p-8 rounded-3xl text-center">
+            <h2 class="text-3xl font-bold mb-4">Dukung Developer</h2>
+            <div class="w-48 h-48 bg-white mx-auto my-6 rounded-xl flex items-center justify-center text-black font-bold">QRIS CODE</div>
+            <p class="font-code text-cyan-400">Dana: 08xx-xxxx-xxxx</p>
+        </div>
+    </section>
+
+    <section id="premium" class="page-content hidden py-12 px-4">
+        <div class="max-w-2xl mx-auto glass p-8 rounded-3xl border-t-4 border-yellow-500">
+            <h2 class="text-2xl font-bold mb-6">Paket Premium</h2>
+            <ul class="space-y-4 mb-8">
+                <li>⭐ Akses Fitur Eksklusif</li>
+                <li>⭐ No Watermark Bot</li>
+                <li>⭐ Support 24/7</li>
+            </ul>
+            <button onclick="window.open('https://wa.me/628xxx')" class="w-full bg-yellow-500 text-black py-4 rounded-xl font-bold">Hubungi Seller</button>
+        </div>
+    </section>
+
+    <section id="informasi" class="page-content hidden py-12 px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8 font-header">Informasi Bot</h2>
+        <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+            <a href="#" class="glass px-8 py-4 rounded-xl hover:bg-green-500/20">WhatsApp Channel</a>
+            <a href="#" class="glass px-8 py-4 rounded-xl hover:bg-blue-500/20">Group Update</a>
+            <a href="#" class="glass px-8 py-4 rounded-xl hover:bg-gray-500/20">GitHub Dev</a>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({ duration: 800 });
+
+        // Navigasi Logic
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-link'));
+            event.target.classList.add('active-link');
+            
+            AOS.refresh();
+        }
+
+        // Swiper
+        new Swiper(".mySwiper", {
+            slidesPerView: 1, spaceBetween: 20, pagination: { el: ".swiper-pagination" },
+            breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        });
+
+        // Particles
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60 },
+                "color": { "value": "#00f2ff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3 },
+                "size": { "value": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 1.5 }
+            }
+        });
+    </script>
+</body>
+</html>
