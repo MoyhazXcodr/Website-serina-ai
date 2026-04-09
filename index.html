@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serina AI - Modern Cyber Script</title>
+    <title>Serina AI - Ultimate Cyber Script</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -18,7 +18,6 @@
             --accent: #00f2ff; 
             --card-bg: rgba(255, 255, 255, 0.03); 
             --green-neon: #00ff88; 
-            --pink-neon: #ff00ea;
         }
         
         body { 
@@ -50,8 +49,11 @@
         .font-header { font-family: 'Space Grotesk', sans-serif; }
 
         /* --- 3D TILT ENGINE --- */
-        .tilt-card { transform-style: preserve-3d; perspective: 1000px; will-change: transform; }
-        .tilt-card > * { transform: translateZ(25px); }
+        .tilt-card { 
+            transform-style: preserve-3d; 
+            perspective: 1000px; 
+            will-change: transform; 
+        }
 
         /* --- ANIMATIONS --- */
         .floating { animation: float 4s ease-in-out infinite; }
@@ -77,15 +79,13 @@
         .active-link { background: rgba(0, 242, 255, 0.2); color: var(--accent); border: 1px solid var(--accent) !important; box-shadow: 0 0 15px var(--accent); }
         .hidden { display: none; }
         .custom-emoji { width: 22px; height: 22px; vertical-align: middle; margin-right: 8px; object-fit: contain; }
-        
-        .swiper-pagination-bullet { background: var(--accent) !important; }
     </style>
 </head>
 <body>
 
     <div id="loader">
         <div class="cyber-spinner"></div>
-        <p class="font-code mt-5 text-sm tracking-widest text-cyan-400 animate-pulse">BOOTING SERINA AI V1.0...</p>
+        <p class="font-code mt-5 text-sm tracking-widest text-cyan-400 animate-pulse">BOOTING SERINA AI...</p>
     </div>
 
     <div id="particles-js"></div>
@@ -110,34 +110,32 @@
                 <p><span class="text-pink-500">const</span> <span class="text-blue-400">Project</span> = {</p>
                 <div class="pl-5">
                     <p><span class="text-cyan-400">author</span>: <span class="text-yellow-300">"Moyhaz (Hazd)"</span>,</p>
-                    <p><span class="text-cyan-400">type</span>: <span class="text-yellow-300">"WhatsApp_Automation"</span>,</p>
-                    <p><span class="text-cyan-400">engine</span>: <span class="text-yellow-300">"Node_JS_20"</span></p>
+                    <p><span class="text-cyan-400">status</span>: <span class="text-yellow-300">"Running_Stable"</span>,</p>
+                    <p><span class="text-cyan-400">ui_engine</span>: <span class="text-yellow-300">"3D_Vanilla_Tilt"</span></p>
                 </div>
                 <p>};</p>
             </div>
         </div>
     </section>
 
-    <main id="content-wrap">
+    <main id="main-wrap">
         
         <section id="home" class="page-content py-12 px-4">
             <div class="text-center mb-16">
                 <h1 class="text-6xl md:text-8xl font-header font-extrabold mb-4 floating text-white" data-aos="zoom-in">
                     Serina <span class="text-cyan-400">AI</span>
                 </h1>
-                <p class="text-gray-400 max-w-xl mx-auto text-lg animate__animated animate__fadeInUp">
-                    Advanced engine for modern WhatsApp automation. Stable, Fast, and Secure.
-                </p>
+                <p class="text-gray-400 max-w-xl mx-auto text-lg">Official Web Interface for Serina WhatsApp Automation.</p>
             </div>
 
-            <div class="max-w-md mx-auto blink-border glass p-8 rounded-3xl mb-16 tilt-card" data-aos="fade-up" data-tilt>
-                <h3 class="font-bold mb-6 text-xl flex items-center">
-                    <img src="https://files.catbox.moe/u0p4v6.png" class="custom-emoji"> Fitur Script Serina
+            <div class="max-w-md mx-auto blink-border glass p-8 rounded-3xl mb-16 tilt-card" data-tilt data-aos="fade-up">
+                <h3 class="font-bold mb-6 text-xl flex items-center" style="transform: translateZ(30px)">
+                    <img src="https://files.catbox.moe/u0p4v6.png" class="custom-emoji"> Script Capabilities
                 </h3>
-                <ul class="space-y-4 font-code text-sm">
+                <ul class="space-y-4 font-code text-sm" style="transform: translateZ(20px)">
                     <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Support Node 20+</li>
-                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Baileys High Performance</li>
-                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Anti Delay & Lag</li>
+                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Fast Connectivity</li>
+                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Modern UI Buttons</li>
                 </ul>
             </div>
 
@@ -146,28 +144,17 @@
                     <div class="swiper-slide p-4">
                         <div class="glass p-8 rounded-3xl h-64 flex flex-col justify-between tilt-card border-t-2 border-cyan-500" data-tilt>
                             <div class="font-code text-sm">
-                                <span class="text-cyan-400 font-bold block mb-4">// System Menu</span>
-                                <ul class="space-y-1"><li>📦 Main Menu</li><li>🖥️ Panel Menu</li><li>🌐 Subdo Menu</li></ul>
+                                <span class="text-cyan-400 font-bold block mb-4">// Core Menu</span>
+                                <ul class="space-y-1"><li>📦 Main Menu</li><li>🖥️ Panel Menu</li></ul>
                             </div>
-                            <div class="text-[10px] opacity-50 font-code">Serina AI - Hazd</div>
                         </div>
                     </div>
                     <div class="swiper-slide p-4">
                         <div class="glass p-8 rounded-3xl h-64 flex flex-col justify-between tilt-card border-t-2 border-pink-500" data-tilt>
                             <div class="font-code text-sm">
-                                <span class="text-pink-400 font-bold block mb-4">// Business Menu</span>
-                                <ul class="space-y-1"><li>💰 Store Menu</li><li>📢 Jpm Menu</li><li>🚀 Push Menu</li></ul>
+                                <span class="text-pink-400 font-bold block mb-4">// Business</span>
+                                <ul class="space-y-1"><li>💰 Store Menu</li><li>📢 Jpm Menu</li></ul>
                             </div>
-                            <div class="text-[10px] opacity-50 font-code">Serina AI - Hazd</div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide p-4">
-                        <div class="glass p-8 rounded-3xl h-64 flex flex-col justify-between tilt-card border-t-2 border-green-500" data-tilt>
-                            <div class="font-code text-sm">
-                                <span class="text-green-400 font-bold block mb-4">// Tools Menu</span>
-                                <ul class="space-y-1"><li>🔍 Search Menu</li><li>🎥 Download Menu</li><li>🛠️ Utility Menu</li></ul>
-                            </div>
-                            <div class="text-[10px] opacity-50 font-code">Serina AI - Hazd</div>
                         </div>
                     </div>
                 </div>
@@ -177,145 +164,108 @@
 
         <section id="download" class="page-content hidden py-12 px-4">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-header font-bold mb-10">Download Center</h2>
+                <h2 class="text-4xl font-bold mb-10">Repository</h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="glass p-8 rounded-3xl border-l-4 border-cyan-500 tilt-card text-left" data-tilt>
-                        <h3 class="font-bold text-xl">Source Code (.ZIP)</h3>
-                        <p class="text-sm text-gray-400 mt-2">Dapatkan script full versi terbaru.</p>
-                        <button class="w-full mt-6 bg-cyan-500 text-black py-3 rounded-xl font-bold hover:scale-105 transition">Download Now</button>
+                        <h3 class="font-bold text-xl">Main Script</h3>
+                        <button class="w-full mt-6 bg-cyan-500 text-black py-3 rounded-xl font-bold">Download ZIP</button>
                     </div>
                     <div class="glass p-8 rounded-3xl border-l-4 border-blue-500 tilt-card text-left" data-tilt>
-                        <h3 class="font-bold text-xl">Module Library</h3>
-                        <p class="text-sm text-gray-400 mt-2">Library khusus penunjang Serina AI.</p>
-                        <button class="w-full mt-6 bg-blue-500 text-white py-3 rounded-xl font-bold hover:scale-105 transition">Download Lib</button>
+                        <h3 class="font-bold text-xl">Library</h3>
+                        <button class="w-full mt-6 bg-blue-500 text-white py-3 rounded-xl font-bold">Download Lib</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="donasi" class="page-content hidden py-12 px-4">
-            <div class="max-w-xl mx-auto glass p-10 rounded-[40px] text-center tilt-card" data-tilt>
-                <h2 class="text-3xl font-bold mb-6">Support Developer</h2>
-                <div class="w-52 h-52 bg-white mx-auto my-6 rounded-2xl flex items-center justify-center border-4 border-cyan-500 p-2 shadow-[0_0_30px_rgba(0,242,255,0.3)]">
+        <section id="donasi" class="page-content hidden py-12 px-4 text-center">
+            <div class="max-w-xl mx-auto glass p-10 rounded-[40px] tilt-card" data-tilt>
+                <h2 class="text-3xl font-bold mb-6">Support Me</h2>
+                <div class="w-48 h-48 bg-white mx-auto my-6 rounded-2xl flex items-center justify-center border-4 border-cyan-500 p-2 shadow-lg">
                     <img src="https://files.catbox.moe/u0p4v6.png" class="w-full h-full object-cover">
                 </div>
                 <p class="font-code text-xl text-cyan-400">DANA: 08xx-xxxx-xxxx</p>
-                <p class="text-gray-400 text-sm mt-4 italic">Setiap donasi sangat berarti untuk update script selanjutnya.</p>
             </div>
         </section>
 
         <section id="premium" class="page-content hidden py-12 px-4 text-center">
-            <div class="max-w-2xl mx-auto glass p-10 rounded-[40px] border-t-4 border-yellow-500 tilt-card shadow-2xl" data-tilt>
-                <h2 class="text-4xl font-header font-extrabold mb-4 text-yellow-500">PREMIUM USER</h2>
-                <p class="text-gray-400 mb-8">Dapatkan akses fitur eksklusif, unlimited request, dan prioritas update.</p>
-                <div class="flex flex-col gap-4 text-left font-code text-sm mb-10 px-6">
-                    <p>✅ Anti Banned System Pro</p>
-                    <p>✅ No Watermark Menu</p>
-                    <p>✅ Custom API Key integration</p>
-                </div>
-                <button onclick="window.open('https://wa.me/628xxx')" class="w-full bg-yellow-500 text-black py-4 rounded-2xl font-black text-lg hover:shadow-[0_0_30px_rgba(234,179,8,0.4)] transition-all">ORDER VIA WHATSAPP</button>
+            <div class="max-w-xl mx-auto glass p-10 rounded-[40px] border-t-4 border-yellow-500 tilt-card" data-tilt>
+                <h2 class="text-3xl font-bold mb-6 text-yellow-500">Premium Plan</h2>
+                <p class="text-gray-400 mb-8">Get full access to all encrypted features.</p>
+                <button onclick="window.open('https://wa.me/628xxx')" class="w-full bg-yellow-500 text-black py-4 rounded-2xl font-bold text-lg">Order via WA</button>
             </div>
         </section>
 
-        <section id="informasi" class="page-content hidden py-12 px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-12">Connect With Community</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <a href="#" class="flex flex-col items-center group tilt-card" data-tilt>
-                        <div class="w-24 h-24 mb-4 rounded-3xl glass green-glow-box flex items-center justify-center">
-                            <img src="https://files.catbox.moe/3p7j7f.png" class="w-16 h-16 object-contain">
-                        </div>
-                        <p class="font-bold group-hover:text-green-400 transition-all">Official Channel</p>
-                    </a>
-                    <a href="#" class="flex flex-col items-center group tilt-card" data-tilt>
-                        <div class="w-24 h-24 mb-4 rounded-3xl glass green-glow-box flex items-center justify-center">
-                            <img src="https://files.catbox.moe/u0p4v6.png" class="w-16 h-16 object-contain">
-                        </div>
-                        <p class="font-bold group-hover:text-green-400 transition-all">Support Group</p>
-                    </a>
-                    <a href="#" class="flex flex-col items-center group tilt-card" data-tilt>
-                        <div class="w-24 h-24 mb-4 rounded-3xl glass green-glow-box flex items-center justify-center">
-                            <img src="https://files.catbox.moe/3p7j7f.png" class="w-16 h-16 object-contain">
-                        </div>
-                        <p class="font-bold group-hover:text-green-400 transition-all">YouTube Demo</p>
-                    </a>
-                </div>
+        <section id="informasi" class="page-content hidden py-12 px-4 text-center">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <a href="#" class="flex flex-col items-center group tilt-card" data-tilt>
+                    <div class="w-24 h-24 mb-4 rounded-3xl glass green-glow-box flex items-center justify-center">
+                        <img src="https://files.catbox.moe/3p7j7f.png" class="w-14 h-14">
+                    </div>
+                    <p class="font-bold">WhatsApp Channel</p>
+                </a>
+                <a href="#" class="flex flex-col items-center group tilt-card" data-tilt>
+                    <div class="w-24 h-24 mb-4 rounded-3xl glass green-glow-box flex items-center justify-center">
+                        <img src="https://files.catbox.moe/u0p4v6.png" class="w-14 h-14">
+                    </div>
+                    <p class="font-bold">WhatsApp Group</p>
+                </a>
             </div>
         </section>
-
     </main>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
     <script>
         // Init Tilt Engine
-        function applyTilt() {
+        function apply3D() {
             VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
                 max: 15,
                 speed: 400,
                 glare: true,
-                "max-glare": 0.15,
-                scale: 1.02,
+                "max-glare": 0.2,
+                scale: 1.05,
                 perspective: 1000
             });
         }
 
-        // Preloader
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').style.display = 'none';
-                applyTilt();
+                apply3D();
                 AOS.init({ duration: 1000, once: true });
-            }, 1500);
+            }, 1000);
         });
 
-        // Navigation System
         function showPage(pageId) {
-            // Hide all pages
             document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
-            // Show target page
             document.getElementById(pageId).classList.remove('hidden');
             
-            // Active Button Style
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-link'));
-            const clickedBtn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.textContent.toLowerCase() === pageId);
+            const clickedBtn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.innerText.toLowerCase() === pageId);
             if(clickedBtn) clickedBtn.classList.add('active-link');
             
-            // UI Refresher
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            setTimeout(applyTilt, 100); // Re-init tilt for new elements
+            setTimeout(apply3D, 50); // Re-init 3D Tilt
             AOS.refresh();
         }
 
-        // Swiper Init
         new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: { el: ".swiper-pagination", clickable: true },
-            breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+            slidesPerView: 1, spaceBetween: 20, pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: { 768: { slidesPerView: 2 } }
         });
 
-        // Particles Background
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 70 },
                 "color": { "value": "#00f2ff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.2, "random": false },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.4 } }, "push": { "particles_nb": 4 } }
-            },
-            "retina_detect": true
+                "opacity": { "value": 0.2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.1 },
+                "move": { "enable": true, "speed": 1.5 }
+            }
         });
     </script>
 </body>
