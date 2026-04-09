@@ -43,12 +43,29 @@
             z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
 
+        /* DURASI: 1.5s biar smooth nggak kelamaan */
         .typewriter {
-            overflow: hidden; white-space: nowrap; border-right: 3px solid var(--accent); width: 0;
-            animation: typing 3s steps(30, end) forwards, blink-caret .75s step-end infinite;
+            display: inline-block;
+            width: max-content;
+            overflow: hidden; 
+            white-space: nowrap; 
+            position: relative;
+            animation: typing 1.5s steps(25, end) forwards;
         }
+
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 100%;
+            background-color: rgba(0, 242, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.7);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: blink-caret .75s step-end infinite;
+        }
+
         @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
+        @keyframes blink-caret { from, to { opacity: 1; } 50% { opacity: 0; } }
 
         .glass { 
             background: var(--card-bg); 
@@ -64,11 +81,15 @@
             50% { border-color: transparent; box-shadow: none; } 
         }
 
+        .info-blink { border: 1px solid var(--accent); animation: glow-info 1.5s infinite alternate; }
+        @keyframes glow-info { from { box-shadow: 0 0 2px var(--accent); } to { box-shadow: 0 0 10px var(--accent); } }
+
         .active-link { background: rgba(0, 242, 255, 0.25); color: var(--accent); border: 1px solid var(--accent) !important; box-shadow: 0 0 15px var(--accent); }
         .hidden { display: none; }
         
         .custom-logo { width: 100%; height: 100%; object-fit: contain; display: block; }
         .emoji-img { width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px; object-fit: contain; }
+        .slide-emoji { width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-left: 6px; }
 
         .font-code { font-family: 'Fira Code', monospace; }
         .font-header { font-family: 'Space Grotesk', sans-serif; }
@@ -78,7 +99,7 @@
 
     <div id="loader">
         <div class="w-16 h-16 border-4 border-transparent border-t-cyan-500 rounded-full animate-spin"></div>
-        <p class="font-code mt-4 text-[10px] tracking-[0.3em] text-cyan-400">LOADING CORE...</p>
+        <p class="font-code mt-4 text-[10px] tracking-[0.3em] text-cyan-400">SYNCING...</p>
     </div>
 
     <div id="particles-js"></div>
@@ -96,9 +117,12 @@
     <main id="content-area">
         <section id="home" class="page-content py-10 px-4">
             <div class="text-center mb-10 flex flex-col items-center">
-                <h1 class="text-5xl md:text-7xl font-header font-black text-white typewriter uppercase tracking-tighter">
-                    Serina <span class="text-cyan-400">AI</span>
-                </h1>
+                <div class="flex items-center justify-center gap-0 mx-auto w-fit">
+                    <h1 class="text-5xl md:text-7xl font-header font-black text-white typewriter uppercase tracking-tighter">
+                        Serina <span class="text-cyan-400">AI</span>
+                    </h1>
+                    <span class="typewriter-cursor text-5xl md:text-7xl">&nbsp;</span>
+                </div>
                 <p class="text-gray-400 mt-4 text-[11px] font-code tracking-widest uppercase">MOYHAZ OFFICIAL</p>
             </div>
 
@@ -116,20 +140,32 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide p-2">
                         <div class="glass p-6 rounded-3xl h-44 flex flex-col justify-center border-t-2 border-cyan-500 tilt-card" data-tilt>
-                            <h4 class="text-cyan-400 font-black text-xs mb-2 uppercase">Auto Deposit</h4>
+                            <h4 class="text-cyan-400 font-black text-xs mb-2 uppercase flex items-center">Auto Deposit <img src="https://files.catbox.moe/zfkfg2.png" class="slide-emoji"></h4>
                             <p class="text-[9px] text-gray-400 font-code">Integrated QRIS Payment Gateway for 083847546366.</p>
                         </div>
                     </div>
                     <div class="swiper-slide p-2">
                         <div class="glass p-6 rounded-3xl h-44 flex flex-col justify-center border-t-2 border-pink-500 tilt-card" data-tilt>
-                            <h4 class="text-pink-400 font-black text-xs mb-2 uppercase">Panel Manager</h4>
+                            <h4 class="text-pink-400 font-black text-xs mb-2 uppercase flex items-center">Panel Manager <img src="https://files.catbox.moe/zfkfg2.png" class="slide-emoji"></h4>
                             <p class="text-[9px] text-gray-400 font-code">Manage your VPS & Pterodactyl nodes directly.</p>
                         </div>
                     </div>
                     <div class="swiper-slide p-2">
                         <div class="glass p-6 rounded-3xl h-44 flex flex-col justify-center border-t-2 border-green-500 tilt-card" data-tilt>
-                            <h4 class="text-green-400 font-black text-xs mb-2 uppercase">Store Menu</h4>
+                            <h4 class="text-green-400 font-black text-xs mb-2 uppercase flex items-center">Store Menu <img src="https://files.catbox.moe/zfkfg2.png" class="slide-emoji"></h4>
                             <p class="text-[9px] text-gray-400 font-code">Automated digital product delivery system.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-2">
+                        <div class="glass p-6 rounded-3xl h-44 flex flex-col justify-center border-t-2 border-blue-500 tilt-card" data-tilt>
+                            <h4 class="text-blue-400 font-black text-xs mb-2 uppercase flex items-center">AI System <img src="https://files.catbox.moe/zfkfg2.png" class="slide-emoji"></h4>
+                            <p class="text-[9px] text-gray-400 font-code">Smart automation powered by Moyhaz Core.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-2">
+                        <div class="glass p-6 rounded-3xl h-44 flex flex-col justify-center border-t-2 border-yellow-500 tilt-card" data-tilt>
+                            <h4 class="text-yellow-400 font-black text-xs mb-2 uppercase flex items-center">Database <img src="https://files.catbox.moe/zfkfg2.png" class="slide-emoji"></h4>
+                            <p class="text-[9px] text-gray-400 font-code">Fast and secure data management system.</p>
                         </div>
                     </div>
                 </div>
@@ -177,9 +213,14 @@
             <div class="max-w-xs mx-auto glass p-10 rounded-[3rem] tilt-card" data-tilt>
                 <h2 class="text-sm font-black mb-6 tracking-widest text-white uppercase">Donation</h2>
                 <div class="w-36 h-36 bg-white mx-auto rounded-3xl p-2 border-4 border-cyan-500 mb-6 shadow-xl flex items-center justify-center overflow-hidden">
-                    <img src="https://files.catbox.moe/zfkfg2.png" class="custom-logo" alt="Logo Moyhaz">
+                    <img src="https://upld.zone.id/uploads/cmi72diq/qr.webp" class="custom-logo" alt="QRIS NEW">
                 </div>
-                <p class="font-code text-xs text-cyan-400 font-bold mb-1">DANA / WA:</p>
+                <div class="info-blink glass p-4 rounded-2xl mb-6">
+                    <p class="text-[9px] font-bold text-white uppercase leading-relaxed">
+                        Silahkan scan QRIS diatas atau hubungi admin setelah melakukan donasi untuk mendapatkan benefit khusus.
+                    </p>
+                </div>
+                <p class="font-code text-xs text-cyan-400 font-bold mb-1 uppercase">DANA / WA:</p>
                 <p class="font-code text-sm text-white font-black tracking-wider">083847546366</p>
             </div>
         </section>
@@ -207,6 +248,11 @@
                     <p class="text-[10px] font-black text-gray-400 group-hover:text-green-400 uppercase">Group</p>
                 </a>
             </div>
+            <div class="max-w-md mx-auto mt-10 text-center">
+                <p class="text-[10px] font-code text-gray-500 uppercase tracking-[0.3em] leading-relaxed">
+                    Serina AI dikembangkan oleh Moyhaz Official. Gunakan script dengan bijak dan dilarang keras memperjualbelikan ulang tanpa izin pengembang.
+                </p>
+            </div>
         </section>
     </main>
 
@@ -226,7 +272,7 @@
                 document.getElementById('loader').style.display = 'none';
                 apply3D();
                 AOS.init({ duration: 800, once: true });
-            }, 1000);
+            }, 600); // DURASI LOADER: 0.6 Detik
         });
 
         function showPage(pageId) {
