@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serina AI - Locked Official</title>
+    <title>Serina AI - 6 Versions Edition</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -14,17 +14,16 @@
 
     <style>
         :root { 
-            /* Warna Background Dark Baru (Agak Rame) */
             --bg-deep: #02040a; 
             --bg-nebula-1: #0d1117;
             --bg-nebula-2: #161b22;
             --accent: #00f2ff; 
-            --card-bg: rgba(15, 23, 42, 0.75); 
+            --card-bg: rgba(15, 23, 42, 0.8); 
             --green-neon: #00ff88; 
+            --glow-cyan: rgba(0, 242, 255, 0.2);
         }
         
         body { 
-            /* Efek BG Galaxy Nebula Smooth */
             background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-nebula-1) 35%, var(--bg-nebula-2) 65%, var(--bg-deep) 100%);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -34,14 +33,8 @@
             overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Particles Layer */
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; opacity: 0.3; }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; opacity: 0.35; }
 
         /* --- PRELOADER --- */
         #loader {
@@ -49,7 +42,7 @@
             z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
         .cyber-spinner {
-            width: 65px; height: 65px; border: 3px solid transparent;
+            width: 60px; height: 60px; border: 3px solid transparent;
             border-top: 3px solid var(--accent); border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -57,40 +50,38 @@
 
         /* --- TEXT TYPEWRITER --- */
         .typewriter {
-            overflow: hidden; 
-            white-space: nowrap; 
-            border-right: 3px solid var(--accent);
-            width: 0;
+            overflow: hidden; white-space: nowrap; border-right: 3px solid var(--accent); width: 0;
             animation: typing 3s steps(30, end) forwards, blink-caret .75s step-end infinite;
         }
         @keyframes typing { from { width: 0 } to { width: 100% } }
         @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent) } }
 
-        /* --- UI COMPONENTS --- */
-        .glass { background: var(--card-bg); backdrop-filter: blur(18px); border: 1px solid rgba(255, 255, 255, 0.07); }
+        /* --- UI COMPONENTS (EXTRA GLOW) --- */
+        .glass { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(18px); 
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            box-shadow: 0 0 15px var(--glow-cyan);
+            transition: 0.4s ease;
+        }
+        .glass:hover {
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 25px var(--glow-cyan);
+        }
+
         .tilt-card { transform-style: preserve-3d; perspective: 1000px; }
         .tilt-card > * { transform: translateZ(30px); }
 
         .blink-border { border: 2px solid var(--accent); animation: blink 2.5s infinite; }
         @keyframes blink { 
-            0%, 100% { border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 255, 0.3); } 
+            0%, 100% { border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); } 
             50% { border-color: transparent; box-shadow: none; } 
         }
 
-        .green-aura {
-            border: 2px solid var(--green-neon);
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-            animation: aura-pulse 2.5s infinite;
-        }
-        @keyframes aura-pulse { 0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.3); } 50% { box-shadow: 0 0 25px rgba(0, 255, 136, 0.6); } }
-
-        .active-link { background: rgba(0, 242, 255, 0.18); color: var(--accent); border: 1px solid var(--accent) !important; text-shadow: 0 0 5px var(--accent); }
+        .active-link { background: rgba(0, 242, 255, 0.2); color: var(--accent); border: 1px solid var(--accent) !important; text-shadow: 0 0 8px var(--accent); }
         .hidden { display: none; }
-        .custom-emoji { width: 22px; height: 22px; display: inline-block; vertical-align: middle; margin-right: 8px; object-fit: contain; }
+        .custom-emoji { width: 20px; height: 20px; display: inline-block; vertical-align: middle; margin-right: 6px; object-fit: contain; }
         
-        /* Khusus Icon Informasi URL */
-        .info-icon { width: 50px; h-50px; object-fit: contain; }
-
         .font-code { font-family: 'Fira Code', monospace; }
         .font-header { font-family: 'Space Grotesk', sans-serif; }
     </style>
@@ -99,7 +90,7 @@
 
     <div id="loader">
         <div class="cyber-spinner"></div>
-        <p class="font-code mt-4 text-xs tracking-widest text-cyan-400">INITIALIZING NEBULA...</p>
+        <p class="font-code mt-4 text-xs tracking-widest text-cyan-400">LOADING CYBERSPACE...</p>
     </div>
 
     <div id="particles-js"></div>
@@ -110,110 +101,113 @@
             <button onclick="showPage('download')" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">Download</button>
             <button onclick="showPage('donasi')" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">Donasi</button>
             <button onclick="showPage('premium')" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">Premium</button>
-            <button onclick="showPage('informasi')" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">Informasi</button>
+            <button onclick="showPage('informasi')" class="nav-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">Info</button>
         </div>
     </nav>
 
-    <section class="mt-10 px-4" data-aos="fade-down">
-        <div class="max-w-md mx-auto glass rounded-2xl overflow-hidden border-cyan-500/20 tilt-card" data-tilt>
-            <div class="bg-gray-800/70 px-4 py-2 flex items-center gap-2 border-b border-white/5 text-[10px] font-code">
-                <div class="flex gap-1.5"><div class="w-2 h-2 rounded-full bg-red-500"></div><div class="w-2 h-2 rounded-full bg-yellow-500"></div><div class="w-2 h-2 rounded-full bg-green-500"></div></div>
-                <span>serina_status.js</span>
-            </div>
-            <div class="p-5 font-code text-xs sm:text-sm leading-relaxed text-gray-300">
-                <p><span class="text-pink-500">const</span> <span class="text-blue-400">Project</span> = { <span class="text-cyan-400">auth</span>: <span class="text-yellow-300">'Moyhaz'</span>, <span class="text-cyan-400">core</span>: <span class="text-yellow-300">'LOCKED'</span> };</p>
-            </div>
-        </div>
-    </section>
-
     <main id="content-area">
         <section id="home" class="page-content py-10 px-4">
-            <div class="text-center mb-12 flex flex-col items-center">
+            <div class="text-center mb-10 flex flex-col items-center">
                 <div class="inline-block">
-                    <h1 class="text-5xl md:text-8xl font-header font-black text-white typewriter">
+                    <h1 class="text-5xl md:text-7xl font-header font-black text-white typewriter">
                         Serina <span class="text-cyan-400">AI</span>
                     </h1>
                 </div>
-                <p class="text-gray-400 mt-5 text-sm max-w-sm animate__animated animate__fadeInUp">High-performance engine, smooth Nebula interface.</p>
+                <p class="text-gray-400 mt-4 text-sm animate__animated animate__fadeIn">Moyhaz Official Web Interface</p>
             </div>
 
-            <div class="max-w-sm mx-auto blink-border glass p-7 rounded-3xl mb-14 tilt-card" data-tilt data-aos="zoom-in">
-                <h3 class="font-bold mb-5 text-base flex items-center text-white">
+            <div class="max-w-sm mx-auto glass rounded-2xl overflow-hidden mb-12 tilt-card" data-tilt data-aos="fade-up">
+                <div class="bg-cyan-500/10 px-4 py-2 flex items-center gap-2 border-b border-cyan-500/20 text-[10px] font-code">
+                    <div class="flex gap-1"><div class="w-2 h-2 rounded-full bg-red-500"></div><div class="w-2 h-2 rounded-full bg-yellow-500"></div><div class="w-2 h-2 rounded-full bg-green-500"></div></div>
+                    <span>serina_dev.js</span>
+                </div>
+                <div class="p-5 font-code text-xs text-gray-300">
+                    <p><span class="text-pink-500">const</span> <span class="text-blue-400">Serina</span> = { <span class="text-cyan-400">user</span>: <span class="text-yellow-300">'Moyhaz'</span> };</p>
+                </div>
+            </div>
+
+            <div class="max-w-sm mx-auto blink-border glass p-6 rounded-3xl mb-12 tilt-card" data-tilt data-aos="zoom-in">
+                <h3 class="font-bold mb-4 text-sm flex items-center text-white">
                     <img src="https://files.catbox.moe/u0p4v6.png" class="custom-emoji"> Script Capabilities
                 </h3>
-                <ul class="space-y-4 font-code text-[11px] text-gray-300">
-                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Node.js v20+ Stable</li>
-                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Vercel-Like Glass UI</li>
-                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> 3D Tilt Locked</li>
+                <ul class="space-y-3 font-code text-[11px] text-gray-300">
+                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Multi-Version Support</li>
+                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> High Performance Engine</li>
+                    <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Secure Baileys API</li>
                 </ul>
-            </div>
-
-            <div class="swiper mySwiper max-w-4xl mx-auto pb-12" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide p-3">
-                        <div class="glass p-7 rounded-2xl h-52 border-t-2 border-cyan-500 tilt-card" data-tilt>
-                            <span class="text-cyan-400 font-bold text-xs block mb-3">// System Core</span>
-                            <p class="text-[10px] text-gray-400 font-code leading-relaxed">Fast handling for restart, monitoring, and panel management.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide p-3">
-                        <div class="glass p-7 rounded-2xl h-52 border-t-2 border-pink-500 tilt-card" data-tilt>
-                            <span class="text-pink-400 font-bold text-xs block mb-3">// Business Menu</span>
-                            <p class="text-[10px] text-gray-400 font-code leading-relaxed">Auto-Store, JPM, Push Member with high conversion.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
             </div>
         </section>
 
         <section id="download" class="page-content hidden py-10 px-4">
-            <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div class="glass p-7 rounded-2xl border-l-4 border-cyan-500 tilt-card" data-tilt>
-                    <h3 class="font-bold text-sm mb-5 text-white">Main Script</h3>
-                    <button class="w-full bg-cyan-500 text-black py-2.5 rounded-lg text-xs font-bold hover:brightness-125 transition">Download ZIP</button>
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-header font-bold text-white">Script Versions</h2>
+                <p class="text-xs text-gray-400">Pilih versi sesuai kebutuhan server Anda</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass p-6 rounded-2xl border-t-2 border-cyan-500 tilt-card text-center" data-tilt>
+                    <h4 class="font-bold text-sm text-cyan-400 mb-2">Serina V1.0</h4>
+                    <p class="text-[10px] text-gray-400 mb-4">Basic edition for starters.</p>
+                    <button class="w-full bg-cyan-500 text-black py-2 rounded-lg text-[10px] font-bold">DOWNLOAD</button>
                 </div>
-                <div class="glass p-7 rounded-2xl border-l-4 border-blue-500 tilt-card" data-tilt>
-                    <h3 class="font-bold text-sm mb-5 text-white">Lib Modules</h3>
-                    <button class="w-full bg-blue-500 text-white py-2.5 rounded-lg text-xs font-bold hover:brightness-125 transition">Download Lib</button>
+                <div class="glass p-6 rounded-2xl border-t-2 border-cyan-500 tilt-card text-center" data-tilt>
+                    <h4 class="font-bold text-sm text-cyan-400 mb-2">Serina V1.5</h4>
+                    <p class="text-[10px] text-gray-400 mb-4">Enhanced performance & bugs fixed.</p>
+                    <button class="w-full bg-cyan-500 text-black py-2 rounded-lg text-[10px] font-bold">DOWNLOAD</button>
+                </div>
+                <div class="glass p-6 rounded-2xl border-t-2 border-pink-500 tilt-card text-center" data-tilt>
+                    <h4 class="font-bold text-sm text-pink-400 mb-2">Serina Pro</h4>
+                    <p class="text-[10px] text-gray-400 mb-4">Full features unlocked edition.</p>
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-lg text-[10px] font-bold">DOWNLOAD</button>
+                </div>
+                <div class="glass p-6 rounded-2xl border-t-2 border-pink-500 tilt-card text-center" data-tilt>
+                    <h4 class="font-bold text-sm text-pink-400 mb-2">Serina Store</h4>
+                    <p class="text-[10px] text-gray-400 mb-4">Dedicated for business & store.</p>
+                    <button class="w-full bg-pink-500 text-white py-2 rounded-lg text-[10px] font-bold">DOWNLOAD</button>
+                </div>
+                <div class="glass p-6 rounded-2xl border-t-2 border-green-500 tilt-card text-center" data-tilt>
+                    <h4 class="font-bold text-sm text-green-400 mb-2">Serina Light</h4>
+                    <p class="text-[10px] text-gray-400 mb-4">Low RAM consumption version.</p>
+                    <button class="w-full bg-green-500 text-black py-2 rounded-lg text-[10px] font-bold">DOWNLOAD</button>
+                </div>
+                <div class="glass p-6 rounded-2xl border-t-2 border-green-500 tilt-card text-center" data-tilt>
+                    <h4 class="font-bold text-sm text-green-400 mb-2">Serina Beta</h4>
+                    <p class="text-[10px] text-gray-400 mb-4">Newest features experiment.</p>
+                    <button class="w-full bg-green-500 text-black py-2 rounded-lg text-[10px] font-bold">DOWNLOAD</button>
                 </div>
             </div>
         </section>
 
         <section id="donasi" class="page-content hidden py-10 px-4 text-center">
-            <div class="max-w-xs mx-auto glass p-9 rounded-[35px] tilt-card" data-tilt>
-                <h2 class="text-xl font-bold mb-5 text-white">Support Moyhaz</h2>
-                <div class="w-32 h-32 bg-white mx-auto rounded-xl p-2 border-2 border-cyan-500 mb-5 shadow-lg">
+            <div class="max-w-xs mx-auto glass p-8 rounded-[30px] tilt-card" data-tilt>
+                <h2 class="text-lg font-bold mb-5">Support Dev</h2>
+                <div class="w-32 h-32 bg-white mx-auto rounded-xl p-1.5 border-2 border-cyan-500 mb-4">
                     <img src="https://files.catbox.moe/u0p4v6.png" class="w-full h-full object-cover">
                 </div>
-                <p class="font-code text-sm text-cyan-400 font-bold">DANA: 08xx-xxxx-xxxx</p>
+                <p class="font-code text-xs text-cyan-400 font-bold">DANA: 08xx-xxxx-xxxx</p>
             </div>
         </section>
 
         <section id="premium" class="page-content hidden py-10 px-4 text-center">
-            <div class="max-w-md mx-auto glass p-9 rounded-[35px] border-t-4 border-yellow-500 tilt-card shadow-xl" data-tilt>
-                <h2 class="text-2xl font-header font-bold mb-5 text-yellow-500">Premium Plan</h2>
-                <p class="text-xs text-gray-400 mb-8 max-w-xs mx-auto">Get full access to locked features and premium commands.</p>
-                <button onclick="window.open('https://wa.me/628xxx')" class="w-full bg-yellow-500 text-black py-3.5 rounded-xl font-bold text-sm hover:brightness-110 transition">BELI SEKARANG</button>
+            <div class="max-w-md mx-auto glass p-8 rounded-[30px] border-t-4 border-yellow-500 tilt-card shadow-2xl" data-tilt>
+                <h2 class="text-xl font-bold mb-4 text-yellow-500 font-header">Premium Access</h2>
+                <p class="text-[11px] text-gray-400 mb-6">Unlock all hidden potentials of Serina AI.</p>
+                <button onclick="window.open('https://wa.me/628xxx')" class="w-full bg-yellow-500 text-black py-3 rounded-xl font-bold text-xs">BUY LICENSE</button>
             </div>
         </section>
 
         <section id="informasi" class="page-content hidden py-10 px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-white font-header">Connect With Us</h2>
-            </div>
-            <div class="max-w-2xl mx-auto grid grid-cols-2 gap-8">
-                <a href="LINK_SALURAN_DISINI" target="_blank" class="flex flex-col items-center group tilt-card" data-tilt>
-                    <div class="w-24 h-24 mb-4 rounded-3xl glass green-aura flex items-center justify-center p-3 group-hover:scale-110 transition-all duration-300">
-                        <img src="https://files.catbox.moe/3p7j7f.png" class="info-icon animate__animated animate__pulse animate__infinite">
+            <div class="max-w-2xl mx-auto grid grid-cols-2 gap-8 text-center">
+                <a href="#" class="group flex flex-col items-center tilt-card" data-tilt>
+                    <div class="w-20 h-20 mb-3 rounded-2xl glass flex items-center justify-center p-3 border-green-500/30">
+                        <img src="https://files.catbox.moe/3p7j7f.png" class="w-12 h-12 object-contain">
                     </div>
-                    <p class="text-xs font-bold text-gray-300 group-hover:text-green-400">WhatsApp Channel</p>
+                    <p class="text-[10px] font-bold text-gray-400 group-hover:text-green-400 transition">Channel</p>
                 </a>
-                <a href="LINK_GROUP_DISINI" target="_blank" class="flex flex-col items-center group tilt-card" data-tilt>
-                    <div class="w-24 h-24 mb-4 rounded-3xl glass green-aura flex items-center justify-center p-3 group-hover:scale-110 transition-all duration-300">
-                        <img src="https://files.catbox.moe/u0p4v6.png" class="info-icon animate__animated animate__pulse animate__infinite">
+                <a href="#" class="group flex flex-col items-center tilt-card" data-tilt>
+                    <div class="w-20 h-20 mb-3 rounded-2xl glass flex items-center justify-center p-3 border-green-500/30">
+                        <img src="https://files.catbox.moe/u0p4v6.png" class="w-12 h-12 object-contain">
                     </div>
-                    <p class="text-xs font-bold text-gray-300 group-hover:text-green-400">WhatsApp Group</p>
+                    <p class="text-[10px] font-bold text-gray-400 group-hover:text-green-400 transition">Group</p>
                 </a>
             </div>
         </section>
@@ -224,55 +218,38 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        // Init 3D Locked Tilt
         function apply3D() {
             VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
-                max: 18, 
-                speed: 400, 
-                glare: true, 
-                "max-glare": 0.25, 
-                scale: 1.03,
-                perspective: 1000
+                max: 15, speed: 400, glare: true, "max-glare": 0.25, scale: 1.02
             });
         }
 
-        // Preloader & Start
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').style.display = 'none';
                 apply3D();
                 AOS.init({ duration: 800, once: true });
-            }, 1200);
+            }, 1000);
         });
 
-        // Navigation
         function showPage(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
             document.getElementById(pageId).classList.remove('hidden');
-            
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-link'));
-            const clickedBtn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.innerText.toLowerCase() === pageId || b.innerText === 'Informasi' && pageId === 'informasi');
+            const clickedBtn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.innerText.toLowerCase() === pageId || b.innerText === 'Info' && pageId === 'informasi');
             if(clickedBtn) clickedBtn.classList.add('active-link');
-            
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            setTimeout(apply3D, 50); // Re-init tilt
+            setTimeout(apply3D, 50);
             AOS.refresh();
         }
 
-        // Swiper
-        new Swiper(".mySwiper", {
-            slidesPerView: 1, spaceBetween: 15, pagination: { el: ".swiper-pagination", clickable: true },
-            breakpoints: { 640: { slidesPerView: 2 } }
-        });
-
-        // Particles Dark Rame
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 110 },
+                "number": { "value": 100 },
                 "color": { "value": "#00f2ff" },
-                "opacity": { "value": 0.25 },
-                "size": { "value": 2.5 },
-                "line_linked": { "enable": true, "distance": 140, "color": "#00f2ff", "opacity": 0.12 },
+                "opacity": { "value": 0.2 },
+                "size": { "value": 2 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.1 },
                 "move": { "enable": true, "speed": 1.2 }
             }
         });
