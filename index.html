@@ -22,44 +22,25 @@
         .cyber-spinner::before { content: ""; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px; border: 3px solid transparent; border-top: 3px solid #ff00ea; border-radius: 50%; animation: spin 2s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* --- BACKGROUND & EFFECTS --- */
         #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
         .glass { background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .font-code { font-family: 'Fira Code', monospace; }
         .font-header { font-family: 'Space Grotesk', sans-serif; }
 
-        /* --- 3D TILT --- */
         .tilt-card { transform-style: preserve-3d; transform: perspective(1000px); }
-
-        /* --- ANIMATIONS --- */
         .floating { animation: float 4s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
         .blink-border { border: 2px solid; animation: blink 2s infinite; }
-        @keyframes blink { 
-            0%, 100% { border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); } 
-            50% { border-color: transparent; box-shadow: none; } 
-        }
+        @keyframes blink { 0%, 100% { border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); } 50% { border-color: transparent; box-shadow: none; } }
 
         /* --- GREEN AURA & BLINK FOR INFORMASI --- */
-        .green-glow-box {
-            border: 2px solid var(--green-aura);
-            box-shadow: 0 0 15px var(--green-aura), inset 0 0 10px var(--green-aura);
-            animation: pulse-green 2s infinite;
-        }
-
-        @keyframes pulse-green {
-            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 15px var(--green-aura); }
-            50% { opacity: 0.7; transform: scale(0.95); box-shadow: 0 0 30px var(--green-aura); }
-        }
+        .green-glow-box { border: 2px solid var(--green-aura); box-shadow: 0 0 15px var(--green-aura); animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 15px var(--green-aura); } 50% { opacity: 0.8; transform: scale(0.98); box-shadow: 0 0 30px var(--green-aura); } }
 
         .custom-emoji { width: 22px; height: 22px; vertical-align: middle; margin-right: 10px; object-fit: contain; }
         .active-link { background: rgba(0, 242, 255, 0.2); color: var(--accent); border: 1px solid var(--accent) !important; }
         .hidden { display: none; }
-
-        /* SweetAlert Custom Style */
-        .swal2-popup { background: #0f172a !important; color: white !important; border-radius: 20px !important; border: 1px solid var(--accent) !important; }
-        .swal2-title { color: var(--accent) !important; }
     </style>
 </head>
 <body>
@@ -71,7 +52,17 @@
 
     <div id="particles-js"></div>
 
-    <section class="pt-8 px-4" data-aos="fade-down">
+    <nav class="sticky top-5 z-50 pt-5 px-4">
+        <div class="max-w-fit mx-auto glass rounded-2xl p-1.5 flex gap-1 border border-white/10">
+            <button onclick="showPage('home')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold active-link transition-all">Home</button>
+            <button onclick="showPage('download')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all">Download</button>
+            <button onclick="showPage('donasi')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all">Donasi</button>
+            <button onclick="showPage('premium')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all">Premium</button>
+            <button onclick="showPage('informasi')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all">Informasi</button>
+        </div>
+    </nav>
+
+    <section class="mt-12 px-4" data-aos="fade-down">
         <div class="max-w-4xl mx-auto glass rounded-xl overflow-hidden border-cyan-500/30 tilt-card">
             <div class="bg-gray-800/50 px-4 py-2 flex items-center gap-2 border-b border-white/10 text-[10px] font-code">
                 <div class="flex gap-1.5"><div class="w-2.5 h-2.5 rounded-full bg-red-500"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500"></div></div>
@@ -89,24 +80,12 @@
         </div>
     </section>
 
-    <nav class="sticky top-5 z-50 mt-8 px-4">
-        <div class="max-w-fit mx-auto glass rounded-2xl p-1.5 flex gap-1 border border-white/10">
-            <button onclick="showPage('home')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold active-link transition-all">Home</button>
-            <button onclick="showPage('download')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all">Download</button>
-            <button onclick="showPage('donasi')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all">Donasi</button>
-            <button onclick="showPage('premium')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all">Premium</button>
-            <button onclick="showPage('informasi')" class="nav-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all">Informasi</button>
-        </div>
-    </nav>
-
     <section id="home" class="page-content py-12 px-4">
         <div class="text-center mb-16">
             <h1 class="text-6xl md:text-8xl font-header font-extrabold mb-4 floating" data-aos="zoom-in">
                 Serina <span class="text-cyan-400">AI</span>
             </h1>
-            <p class="text-gray-400 max-w-xl mx-auto text-lg animate__animated animate__fadeInUp">
-                Elevate your WhatsApp experience with the most advanced automation engine.
-            </p>
+            <p class="text-gray-400 max-w-xl mx-auto text-lg">Elevate your WhatsApp experience with the most advanced automation engine.</p>
         </div>
 
         <div class="max-w-md mx-auto blink-border glass p-8 rounded-3xl mb-16 tilt-card" data-aos="fade-up">
@@ -116,114 +95,62 @@
             <ul class="space-y-4 font-code text-sm">
                 <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Support Node 20+</li>
                 <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Anti Connect Close</li>
-                <li class="flex items-center"><img src="https://files.catbox.moe/3p7j7f.png" class="custom-emoji"> Full Modern Style</li>
             </ul>
         </div>
-
-        <div class="swiper mySwiper max-w-6xl mx-auto pb-10" data-aos="fade-up">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide p-4">
-                    <div class="glass p-8 rounded-3xl h-72 flex flex-col justify-between tilt-card border-t-2 border-cyan-500/50">
-                        <div class="font-code text-sm">
-                            <span class="text-cyan-400 font-bold block mb-4">// System Menu</span>
-                            <ul class="space-y-2">
-                                <li>📦 main menu</li>
-                                <li>🖥️ panel menu</li>
-                                <li>🌐 subdo menu</li>
-                            </ul>
-                        </div>
-                        <div class="text-[10px] text-gray-500 italic font-code">Serina Ai - Hazsly GG</div>
-                    </div>
-                </div>
-                <div class="swiper-slide p-4">
-                    <div class="glass p-8 rounded-3xl h-72 flex flex-col justify-between tilt-card border-t-2 border-pink-500/50">
-                        <div class="font-code text-sm">
-                            <span class="text-pink-400 font-bold block mb-4">// Business Menu</span>
-                            <ul class="space-y-2">
-                                <li>💰 store menu</li>
-                                <li>📢 jpm menu</li>
-                                <li>🚀 push menu</li>
-                            </ul>
-                        </div>
-                        <div class="text-[10px] text-gray-500 italic font-code">Serina Ai - Hazsly GG</div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
     </section>
 
-    <section id="download" class="page-content hidden py-12 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-header font-bold mb-10">Repository</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass p-8 rounded-3xl border-l-4 border-cyan-500 tilt-card text-left">
-                    <h3 class="font-bold text-xl">Main Script (GitHub)</h3>
-                    <p class="text-sm text-gray-400 mt-2 mb-6">Source code utama Serina AI v1.0.0</p>
-                    <button class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(0,242,255,0.5)] transition-all">Download .ZIP</button>
-                </div>
-                <div class="glass p-8 rounded-3xl border-l-4 border-blue-500 tilt-card text-left">
-                    <h3 class="font-bold text-xl">Module Library</h3>
-                    <p class="text-sm text-gray-400 mt-2 mb-6">Kumpulan library Baileys custom.</p>
-                    <button class="w-full bg-blue-500 text-white py-3 rounded-xl font-bold transition-all">Download Lib</button>
-                </div>
+    <section id="download" class="page-content hidden py-12 px-4 text-center">
+        <h2 class="text-4xl font-header font-bold mb-10">Repository</h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="glass p-8 rounded-3xl border-l-4 border-cyan-500 tilt-card text-left">
+                <h3 class="font-bold text-xl">Main Script (GitHub)</h3>
+                <button class="w-full mt-6 bg-cyan-500 text-black py-3 rounded-xl font-bold">Download .ZIP</button>
+            </div>
+            <div class="glass p-8 rounded-3xl border-l-4 border-blue-500 tilt-card text-left">
+                <h3 class="font-bold text-xl">Module Library</h3>
+                <button class="w-full mt-6 bg-blue-500 text-white py-3 rounded-xl font-bold">Download Lib</button>
             </div>
         </div>
     </section>
 
-    <section id="donasi" class="page-content hidden py-12 px-4">
-        <div class="max-w-2xl mx-auto glass p-10 rounded-[40px] text-center tilt-card">
-            <h2 class="text-3xl font-bold mb-2">Buy Me a Coffee</h2>
-            <p class="text-gray-400 mb-8">Dukunganmu sangat berarti bagi pengembangan script ini.</p>
-            <div class="w-56 h-56 bg-white mx-auto my-6 rounded-2xl flex items-center justify-center border-4 border-cyan-500 p-2">
+    <section id="donasi" class="page-content hidden py-12 px-4 text-center">
+        <div class="max-w-2xl mx-auto glass p-10 rounded-[40px] tilt-card">
+            <h2 class="text-3xl font-bold mb-6">Buy Me a Coffee</h2>
+            <div class="w-56 h-56 bg-white mx-auto my-6 rounded-2xl p-2 border-4 border-cyan-500">
                 <img src="https://files.catbox.moe/u0p4v6.png" class="w-full h-full object-cover">
             </div>
-            <p class="font-code text-2xl text-cyan-400 mt-4">DANA: 08xx-xxxx-xxxx</p>
+            <p class="font-code text-2xl text-cyan-400">DANA: 08xx-xxxx-xxxx</p>
         </div>
     </section>
 
-    <section id="premium" class="page-content hidden py-12 px-4">
+    <section id="premium" class="page-content hidden py-12 px-4 text-center">
         <div class="max-w-2xl mx-auto glass p-10 rounded-[40px] border-t-4 border-yellow-500 tilt-card">
-            <h2 class="text-3xl font-bold mb-8 text-yellow-500 text-center">Premium Access</h2>
-            <div class="space-y-6">
-                <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl">
-                    <span class="text-2xl text-yellow-500">✔</span>
-                    <p>Unlock All Executive Commands</p>
-                </div>
-                <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl">
-                    <span class="text-2xl text-yellow-500">✔</span>
-                    <p>Priority Support & Fix Bug</p>
-                </div>
-                <button onclick="window.open('https://wa.me/628xxx')" class="w-full bg-yellow-500 text-black py-4 rounded-2xl font-bold text-lg hover:bg-yellow-400 transition-all">Beli Sekarang</button>
-            </div>
+            <h2 class="text-3xl font-bold mb-8 text-yellow-500">Premium Access</h2>
+            <button onclick="window.open('https://wa.me/628xxx')" class="w-full bg-yellow-500 text-black py-4 rounded-2xl font-bold">Beli Sekarang</button>
         </div>
     </section>
 
-    <section id="informasi" class="page-content hidden py-12 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-10">Connect With Us</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <a href="#" class="flex flex-col items-center group">
-                    <div class="w-24 h-24 mb-4 rounded-2xl overflow-hidden glass green-glow-box transition-all duration-300">
-                        <img src="https://files.catbox.moe/3p7j7f.png" class="w-full h-full object-cover">
-                    </div>
-                    <p class="font-bold group-hover:text-green-400 transition-all">WhatsApp Channel</p>
-                </a>
-
-                <a href="#" class="flex flex-col items-center group">
-                    <div class="w-24 h-24 mb-4 rounded-2xl overflow-hidden glass green-glow-box transition-all duration-300">
-                        <img src="https://files.catbox.moe/u0p4v6.png" class="w-full h-full object-cover">
-                    </div>
-                    <p class="font-bold group-hover:text-green-400 transition-all">Group Update</p>
-                </a>
-
-                <a href="#" class="flex flex-col items-center group">
-                    <div class="w-24 h-24 mb-4 rounded-2xl overflow-hidden glass green-glow-box transition-all duration-300">
-                        <img src="https://files.catbox.moe/3p7j7f.png" class="w-full h-full object-cover">
-                    </div>
-                    <p class="font-bold group-hover:text-green-400 transition-all">YouTube Demo</p>
-                </a>
-            </div>
+    <section id="informasi" class="page-content hidden py-12 px-4 text-center">
+        <h2 class="text-3xl font-bold mb-10">Connect With Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <a href="#" class="flex flex-col items-center group tilt-card">
+                <div class="w-24 h-24 mb-4 rounded-2xl overflow-hidden glass green-glow-box">
+                    <img src="https://files.catbox.moe/3p7j7f.png" class="w-full h-full object-cover">
+                </div>
+                <p class="font-bold group-hover:text-green-400">WhatsApp Channel</p>
+            </a>
+            <a href="#" class="flex flex-col items-center group tilt-card">
+                <div class="w-24 h-24 mb-4 rounded-2xl overflow-hidden glass green-glow-box">
+                    <img src="https://files.catbox.moe/u0p4v6.png" class="w-full h-full object-cover">
+                </div>
+                <p class="font-bold group-hover:text-green-400">Group Update</p>
+            </a>
+            <a href="#" class="flex flex-col items-center group tilt-card">
+                <div class="w-24 h-24 mb-4 rounded-2xl overflow-hidden glass green-glow-box">
+                    <img src="https://files.catbox.moe/3p7j7f.png" class="w-full h-full object-cover">
+                </div>
+                <p class="font-bold group-hover:text-green-400">YouTube Demo</p>
+            </a>
         </div>
     </section>
 
@@ -234,62 +161,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
     <script>
-        // --- LOGIC TETAP SAMA ---
+        function initTilt() {
+            VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+                max: 10, speed: 400, glare: true, "max-glare": 0.1,
+            });
+        }
+
         window.addEventListener('load', () => {
             setTimeout(() => {
-                const loader = document.getElementById('loader');
-                loader.style.transition = '0.5s opacity';
-                loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    Swal.fire({
-                        title: 'Serina AI v1.0',
-                        text: 'Selamat datang di dashboard Official Serina AI!',
-                        icon: 'success',
-                        background: '#0f172a',
-                        color: '#fff',
-                        confirmButtonColor: '#00f2ff',
-                        confirmButtonText: 'Let\'s Go!',
-                        showClass: { popup: 'animate__animated animate__zoomIn' }
-                    });
-                }, 500);
-            }, 1500);
-        });
-
-        AOS.init({ duration: 1000, once: true });
-        
-        VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
-            max: 10, speed: 400, glare: true, "max-glare": 0.1,
-        });
-
-        new Swiper(".mySwiper", {
-            slidesPerView: 1, spaceBetween: 20, pagination: { el: ".swiper-pagination", clickable: true },
-            breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-        });
-
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 80 },
-                "color": { "value": "#00f2ff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.2 },
-                "size": { "value": 2 },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00f2ff", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 1.5 }
-            }
+                document.getElementById('loader').style.display = 'none';
+                initTilt();
+            }, 1000);
         });
 
         function showPage(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
             document.getElementById(pageId).classList.remove('hidden');
-            
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-link'));
             const clickedBtn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.textContent.toLowerCase() === pageId);
             if(clickedBtn) clickedBtn.classList.add('active-link');
-            
+            initTilt();
             window.scrollTo({ top: 0, behavior: 'smooth' });
             AOS.refresh();
         }
+
+        AOS.init({ duration: 1000, once: true });
+        particlesJS("particles-js", { "particles": { "number": { "value": 80 }, "color": { "value": "#00f2ff" }, "opacity": { "value": 0.2 }, "move": { "enable": true, "speed": 1.5 } } });
     </script>
 </body>
 </html>
